@@ -1,11 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, ImageBackground, TouchableOpacity,Dimensions } from 'react-native';
 import { ScrollView } from 'react-native-web';
 
 export default function App() {
   const [item, updateItem] = useState([1])
   const tmpArray = JSON.parse(JSON.stringify(item))
+const {width, height, scale: deviceScale, fontScale} = Dimensions.get('window');
+const baseWidth = 360;
+const baseHeight = 700;
+
+const scaleWidth = width / baseWidth;
+const scaleHeight = height / baseHeight;
+const scale = Math.min(scaleWidth, scaleHeight);
+
+// const storageProvider = require('./StorageProvider');
+
+ const scaleRatio = deviceScale;
+ const deviceWidth = width;
+ const deviceHeight = height;
+ const deviceAspectRatio = width / height;
+ const scaledSize = (size) => Math.ceil(size * scale);
+ const widthFromPercentage = (per) => (width * per) / 100;
+ const heightFromPercentage = (per) => (height * per) / 100;
+
   const incrementItem = () => {
     tmpArray.push(tmpArray[tmpArray.length - 1] + 1)
     updateItem(tmpArray)
@@ -23,40 +41,40 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={{ height: 470, flexDirection: 'row', }}>
+      <View style={{ height: scaledSize(470), flexDirection: 'row', }}>
         <View style={{
-          width: '80%', flexDirection: 'row',
+          width: widthFromPercentage(80), flexDirection: 'row',
         }}>
           {/* parent left view------- */}
-          <View style={{ width: '70%', }}>
-            <Image source={require('./assets/bg.png')} style={{ height: 359, width: 500, alignSelf: 'flex-start' }} resizeMode='contain' />
+          <View style={{ width: widthFromPercentage(70), }}>
+            <Image source={require('./assets/bg.png')} style={{ height: scaledSize(359), width: scaledSize(500), alignSelf: 'flex-start' }} resizeMode='contain' />
             {/* user information--------- */}
-            <View style={{ marginLeft: 30, }}>
-              <View style={{ flexDirection: 'row', width: '100%', height: 25, justifyContent: 'flex-start', alignItems: 'center', }}>
-                <View style={{ width: '20%' }}>
+            <View style={{ marginLeft: scaledSize(30), }}>
+              <View style={{ flexDirection: 'row', width: widthFromPercentage(100), height: scaledSize(25), justifyContent: 'flex-start', alignItems: 'center', }}>
+                <View style={{ width: widthFromPercentage(20) }}>
                   <Text style={[styles.headerLabel, {
                     fontFamily: 'Merriweather-LightItalic',
                   }]}>
                     Name :- </Text>
                 </View>
-                <TextInput style={{ width: '70%', height: 25, fontSize: 16, fontFamily: 'Merriweather-LightItalic' }} placeholder='Mobile Number' value='Shoaib Sheikh' />
+                <TextInput style={{ width: widthFromPercentage(70), height: scaledSize(25), fontSize: scaledSize(16), fontFamily: 'Merriweather-LightItalic' }} placeholder='Mobile Number' value='Shoaib Sheikh' />
               </View>
 
-              <View style={{ flexDirection: 'row', width: '100%', height: 25, justifyContent: 'flex-start', alignItems: 'center', }}>
-                <View style={{ width: '20%' }}>
+              <View style={{ flexDirection: 'row', width: widthFromPercentage(100), height: scaledSize(25), justifyContent: 'flex-start', alignItems: 'center', }}>
+                <View style={{ width: widthFromPercentage(20) }}>
                   <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
                     Contact :- </Text>
                 </View>
-                <TextInput style={{ width: '70%', height: 25, fontSize: 16, }} placeholder='Mobile Number' value='7566663331' />
+                <TextInput style={{ width: widthFromPercentage(70), height: scaledSize(25), fontSize: scaledSize(16), }} placeholder='Mobile Number' value='7566663331' />
               </View>
 
-              <View style={{ flexDirection: 'row', width: '100%', height: 30, justifyContent: 'flex-start', alignItems: 'center' }}>
-                <View style={{ width: '20%' }}>
+              <View style={{ flexDirection: 'row', width: widthFromPercentage(100), height: scaledSize(30), justifyContent: 'flex-start', alignItems: 'center' }}>
+                <View style={{ width: widthFromPercentage(20) }}>
                   <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
                     Address :- </Text>
                 </View>
-                <View style={{ width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-                  <TextInput style={{ width: '100%', height: 40, fontSize: 16, }} placeholder='Mobile Number' value='92 kohinoor colony indore Madhya Pradesh 452001' />
+                <View style={{ width: widthFromPercentage(100), justifyContent: 'flex-start', alignItems: 'flex-start' }}>
+                  <TextInput style={{ width: widthFromPercentage(100), height: scaledSize(40), fontSize: scaledSize(16), }} placeholder='Mobile Number' value='92 kohinoor colony indore Madhya Pradesh 452001' />
                 </View>
 
               </View>

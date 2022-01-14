@@ -88,12 +88,12 @@ const date = Date
               </View>
 
               <View style={{ flexDirection: 'row', width: widthFromPercentage(100), height: scaledSize(30), justifyContent: 'flex-start', alignItems: 'center' }}>
-                <View style={{ width: widthFromPercentage(10) }}>
+                <View style={{ width: widthFromPercentage(10),backgroundColor:'red' }}>
                   <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
                     Address :- </Text>
                 </View>
-                <View style={{ width: widthFromPercentage(100), justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-                  <TextInput style={{ width: widthFromPercentage(100), height: scaledSize(40), fontSize: scaledSize(16), }} placeholder='Address'
+                <View style={{backgroundColor:'yellow',alignItems:'flex-start',justifyContent:'flex-start'}}>
+                  <TextInput style={[styles.inputText]} placeholder='Address'
                     />
                 </View>
 
@@ -108,7 +108,7 @@ const date = Date
                 <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
                   Address :- </Text>
               </View>
-              <TextInput style={{ width: '100%', height: scaledSize(55), fontSize: scaledSize(16), }} placeholder='Mobile Number' value='Madina Nagar Madina Mosque   Complex Shop No 6 Indore   Madhya Pradesh 452001' multiline={true} />
+              <TextInput style={styles.inputText} placeholder='Mobile Number' value='Madina Nagar Madina Mosque   Complex Shop No 6 Indore   Madhya Pradesh 452001' multiline={true} />
 
             </View>
 
@@ -256,11 +256,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   headerLabel: {
-    fontSize: scaledSize(18),
+    fontSize: scaledSize(24),
   },
   inputText: {
-    textAlign: 'center',
-    fontSize: scaledSize(20),
+    // textAlign: '',
+    fontSize: scaledSize(22),
     height: '100%',
   },
   textHeading: {

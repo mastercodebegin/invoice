@@ -193,7 +193,8 @@ const date = Date
         </View>
         {/* end of heading row-------- */}
         {item.map((item) =>
-          <View style={{ width: '80%', backgroundColor: 'white', height: scaledSize(50), borderRadius: scaledSize(40), flexDirection: 'row', marginTop: scaledSize(30) }}>
+          <View style={{ width: '80%', backgroundColor: 'white', height: scaledSize(50), borderRadius: scaledSize(40), flexDirection: 'row', marginTop: scaledSize(30)
+           }}>
 
             <View style={[styles.labelView]}>
               <TextInput placeholder='Quantity' style={styles.inputText}
@@ -228,7 +229,7 @@ const date = Date
         )}
 
         <View style={{ position: 'absolute', top: scaledSize(350), left: scaledSize(950) }}>
-          <TextInput placeholder='Total Amount' style={{ fontSize: scaledSize(20) }}  />
+          <TextInput placeholder='Total Amount' style={{ fontFamily: 'Merriweather-LightItalic',fontSize:20 }}  />
         </View>
 
         <View style={{ height: scaledSize(100), width: '80%', alignSelf: 'center', marginTop: scaledSize(300), flexDirection: 'row' }}>

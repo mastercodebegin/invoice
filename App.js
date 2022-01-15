@@ -74,26 +74,27 @@ const date = Date
                   <Text style={[styles.headerLabel, {
                     fontFamily: 'Merriweather-LightItalic',
                   }]}>
-                    Name :- </Text>
+                    Name      :- </Text>
                 </View>
-                <TextInput style={{ width:'70%', height: scaledSize(25), fontSize: scaledSize(16), fontFamily: 'Merriweather-LightItalic' }} placeholder='Name'  />
+                <TextInput 
+                 placeholder='Name' style={styles.AddressInputText} />
               </View>
 
               <View style={{ flexDirection: 'row', width: widthFromPercentage(100), height: scaledSize(25), justifyContent: 'flex-start', alignItems: 'center', }}>
                 <View style={{ width: widthFromPercentage(10) }}>
                   <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
-                    Contact :- </Text>
+                    Contact   :- </Text>
                 </View>
-                <TextInput style={{ width: widthFromPercentage(70), height: scaledSize(25), fontSize: scaledSize(16), }} placeholder='Mobile Number'  />
+                <TextInput style={[styles.AddressInputText]} placeholder='Mobile Number'  />
               </View>
 
               <View style={{ flexDirection: 'row', width: widthFromPercentage(100), height: scaledSize(30), justifyContent: 'flex-start', alignItems: 'center' }}>
-                <View style={{ width: widthFromPercentage(10),backgroundColor:'red' }}>
+                <View style={{ width: widthFromPercentage(10) }}>
                   <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
-                    Address :- </Text>
+                    Address  :- </Text>
                 </View>
-                <View style={{backgroundColor:'yellow',alignItems:'flex-start',justifyContent:'flex-start'}}>
-                  <TextInput style={[styles.inputText]} placeholder='Address'
+                <View style={{alignItems:'flex-start',justifyContent:'flex-start'}}>
+                  <TextInput style={[styles.AddressInputText]} placeholder='Address'
                     />
                 </View>
 
@@ -104,11 +105,24 @@ const date = Date
           <View style={{ position: 'absolute', left: scaledSize(550), height: scaledSize(140), width: '45%', }}>
             <Image source={require('./assets/logo.png')} style={{ height: scaledSize(150), width: (350), position: 'absolute', bottom: scaledSize(22),marginTop:40 }} resizeMode='contain' />
             <View style={{ flexDirection: 'row', width: '100%', height: scaledSize(30), position: 'absolute', top: scaledSize(100), justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-              <View>
-                <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
-                  Address :- </Text>
+              <View style={{flexDirection:'row'}}>
+                <View style={{flexDirection:'row'}}>
+                  <View>
+
+                <Text style={styles.companyAddress}>
+                  Address :-</Text> 
+                  </View>
+                  <View style={{flexDirection:'column',marginLeft:10}}>
+                  <Text style={styles.companyAddress}>
+                     Madina Nagar Madina Mosque   
+                    </Text>
+                  <Text style={{ fontFamily: 'Merriweather-LightItalic',fontSize:20 }}>
+                    Complex Shop No 6 Indore   Madhya Pradesh 452001 
+                    </Text>
+                  </View>
+                </View>
               </View>
-              <TextInput style={styles.inputText} placeholder='Mobile Number' value='Madina Nagar Madina Mosque   Complex Shop No 6 Indore   Madhya Pradesh 452001' multiline={true} />
+              {/* <TextInput style={styles.AddressInputText} placeholder='Mobile Number' value='Madina Nagar Madina Mosque   Complex Shop No 6 Indore   Madhya Pradesh 452001' multiline={true} /> */}
 
             </View>
 
@@ -116,13 +130,14 @@ const date = Date
           </View>
 
           <View style={{ position: 'absolute', left: scaledSize(550), height: scaledSize(140), top: scaledSize(60), width: '45%', }}>
-            <View style={{ flexDirection: 'row', width: '100%', height: scaledSize(30), position: 'absolute', top: scaledSize(100), justifyContent: 'flex-start', alignItems: 'flex-start' }}>
+            <View style={{ flexDirection: 'row', width: '100%', height: scaledSize(30),
+             position: 'absolute', top: scaledSize(100), 
+             justifyContent: 'flex-start', alignItems: 'flex-start' }}>
               <View>
-                <Text style={[styles.headerLabel, { fontFamily: 'Merriweather-LightItalic', }]}>
-                  Contact :- </Text>
+                <Text style={styles.companyAddress}>
+                  Contact  :-  9770480081, 7566663331</Text>
               </View>
-              <TextInput style={{ width: '100%', height: scaledSize(55), fontSize: scaledSize(16), }} placeholder='Mobile Number' value='9770480081, 7566663331' multiline={true} />
-
+              
             </View>
 
 
@@ -135,11 +150,11 @@ const date = Date
 
 
               <View style={{ width: widthFromPercentage(30),flexDirection:'row' }}>
-                <Text>
+                <Text style={styles.headerLabel}>
                   Date
                   {/* :- 12-12-2022 */}
                 </Text>
-                <Text style={{marginLeft:30}}>{getCurrentDate()}</Text>
+                <Text style={[styles.headerLabel,{marginLeft:30}]}>{getCurrentDate()}</Text>
               </View>
           </View>
           
@@ -187,7 +202,9 @@ const date = Date
             </View>
 
             <View style={[styles.labelView, { marginLeft: scaledSize(1), height: scaledSize(70) }]}>
-              <TextInput placeholder='Item Description' style={[styles.inputText, { textAlign: 'left', marginLeft: scaledSize(45), height: scaledSize(70) }]}
+              <TextInput placeholder='Item Description' 
+              style={[styles.inputText, { textAlign: 'left', marginLeft: scaledSize(45), 
+              height: scaledSize(70) }]}
                 multiline={true} />
             </View>
 
@@ -257,11 +274,21 @@ const styles = StyleSheet.create({
   },
   headerLabel: {
     fontSize: scaledSize(24),
+    fontFamily: 'Merriweather-LightItalic'
   },
   inputText: {
     // textAlign: '',
     fontSize: scaledSize(22),
     height: '100%',
+    fontFamily: 'Merriweather-LightItalic',
+    textAlign:'center'
+  },
+  AddressInputText: {
+    // textAlign: '',
+    fontSize: scaledSize(22),
+    height: '100%',
+    fontFamily: 'Merriweather-LightItalic',
+    
   },
   textHeading: {
     fontFamily: 'Merriweather-LightItalic',
@@ -273,5 +300,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Merriweather-LightItalic',
     fontSize: scaledSize(14),
     marginLeft: scaledSize(12)
+  },
+  companyAddress:{
+    fontFamily: 'Merriweather-LightItalic',
+    fontSize:20 
+
   }
 });

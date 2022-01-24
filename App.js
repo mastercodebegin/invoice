@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, ImageBackground, TouchableOpacity, Dimensions } from 'react-native';
 import { ScrollView } from 'react-native-web';
-
   const { width, height, scale: deviceScale, fontScale } = Dimensions.get('window');
   const baseWidth = 360;
   const baseHeight = 700;
@@ -17,7 +16,7 @@ import { ScrollView } from 'react-native-web';
   const widthFromPercentage = (per) => (width * per) / 100;
   const heightFromPercentage = (per) => (height * per) / 100;
 
-export default function App() {
+export default function App() { console.log('test---');
   const [item, updateItem] = useState([1])
   const tmpArray = JSON.parse(JSON.stringify(item))
   const [qty,setQuantity]=useState(0)
@@ -169,7 +168,8 @@ const date = Date
       <View style={{ height: scaledSize(100), alignItems: 'center' }}>
 
 
-        <View style={{ width: '80%', backgroundColor: '#00C03C', height: scaledSize(40), borderRadius: scaledSize(10), flexDirection: 'row' }}>
+        <View style={{ width: '80%', backgroundColor: '#00C03C', height: scaledSize(40), 
+        borderRadius: scaledSize(10), flexDirection: 'row',marginRight:20 }}>
 
           <View style={styles.labelView}>
             <TouchableOpacity onPress={() => { incrementItem() }}>
@@ -202,10 +202,10 @@ const date = Date
                 
             </View>
 
-            <View style={[styles.labelView, { marginLeft: scaledSize(1), height: scaledSize(70) }]}>
+            <View style={[styles.labelView, { marginLeft: scaledSize(1), height: scaledSize(100) }]}>
               <TextInput placeholder='Item Description' 
               style={[styles.inputText, { textAlign: 'left', marginLeft: scaledSize(45), 
-              height: scaledSize(70) }]}
+              height: scaledSize(100) }]}
                 multiline={true} />
             </View>
 
@@ -228,18 +228,21 @@ const date = Date
           </View>
         )}
 
-        <View style={{ position: 'absolute', top: scaledSize(350), left: scaledSize(950) }}>
-          <TextInput placeholder='Total Amount' style={{ fontFamily: 'Merriweather-LightItalic',fontSize:20 }}  />
+        <View style={{ position: 'absolute', top: scaledSize(350), 
+        left: scaledSize(800),flexDirection:'row',justifyContent:'center',alignItems:'center'}} 
+        >
+          <Text style={[styles.textHeading,{color:'black',fontSize:24}]}>Total Amount:-    </Text>
+          <TextInput placeholder='Total Amount' style={{ fontFamily: 'Merriweather-LightItalic',fontSize:24 }}  />
         </View>
 
         <View style={{ height: scaledSize(100), width: '80%', alignSelf: 'center', marginTop: scaledSize(300), flexDirection: 'row' }}>
           <View style={{ width: '60%' }}>
             <Text style={{ fontSize: scaledSize(18), fontFamily: 'Cormorant-Bold' }}>Term's And Condition's</Text>
             <Text style={[styles.termsAndCondition, { marginTop: scaledSize(8) }]}> * No warranty on water logged & damage mobile phone </Text>
-            <Text style={styles.termsAndCondition}> * warranty on battery and charger six month only</Text>
+            <Text style={styles.termsAndCondition}> * warranty on battery and charger six month's only</Text>
             <Text style={styles.termsAndCondition}> * goods once sold will not be taken back</Text>
             <Text style={styles.termsAndCondition}> * warrenty id manufecture's libelity and not ours</Text>
-            <Text style={styles.termsAndCondition}> * I here by agrre to all term's & condition's mentioned above.</Text>
+            <Text style={styles.termsAndCondition}> * I here by agree to all term's & condition's mentioned above.</Text>
           </View>
           <View style={{ width: '40%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' }}>
             <Text>Customer Sign</Text>

@@ -18,6 +18,7 @@ import { ScrollView } from 'react-native-web';
   const heightFromPercentage = (per) => (height * per) / 100;
 
 export default function App() {
+  console.log('master');
   const [item, updateItem] = useState([1])
   const tmpArray = JSON.parse(JSON.stringify(item))
   const [qty,setQuantity]=useState(0)

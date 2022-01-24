@@ -18,6 +18,7 @@ import { ScrollView } from 'react-native-web';
 
 export default function App() { 
   console.log('test---');
+  console.log('test21---');
   const [item, updateItem] = useState([1])
   const tmpArray = JSON.parse(JSON.stringify(item))
   const [qty,setQuantity]=useState(0)

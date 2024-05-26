@@ -118,7 +118,10 @@ const date = Date
                      Madina Nagar Madina Mosque   
                     </Text>
                   <Text style={{ fontFamily: 'Merriweather-LightItalic',fontSize:20 }}>
-                    Complex Shop No 6 Indore   Madhya Pradesh 452001 
+                    {`Complex Shop No 6 Indore, Madhya Pradesh,` }
+                    </Text>
+                    <Text style={{ fontFamily: 'Merriweather-LightItalic',fontSize:20 }}>
+                    {`452001` }
                     </Text>
                   </View>
                 </View>
@@ -134,9 +137,9 @@ const date = Date
             <View style={{ flexDirection: 'row', width: '100%', height: scaledSize(30),
              position: 'absolute', top: scaledSize(100), 
              justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-              <View>
+              <View style={{marginTop:19}}>
                 <Text style={styles.companyAddress}>
-                  Contact  :-  9770480081, 7566663331</Text>
+                  Contact  :-  7566663331</Text>
               </View>
               
             </View>
@@ -212,11 +215,11 @@ const date = Date
             </View>
 
             <View style={styles.labelView}>
-              <TextInput placeholder='Price' style={styles.inputText}
+              <TextInput placeholder='Price' style={[styles.inputText,{marginRight:20}]}
                 multiline={true} onChangeText={(value)=>setPrice(value)}  />
             </View>
             <View style={[styles.labelView]}>
-              <TextInput placeholder='Total' style={styles.inputText}
+              <TextInput placeholder='Total' style={[styles.inputText,{marginRight:20}]}
                 keyboardType='numbers-and-punctuation'
                 multiline={true} 
                 // value={calculateTotalPrice()}
@@ -231,10 +234,11 @@ const date = Date
         )}
 
         <View style={{ position: 'absolute', top: scaledSize(350), 
-        left: scaledSize(800),flexDirection:'row',justifyContent:'center',alignItems:'center'}} 
+        left: scaledSize(800),flexDirection:'row',justifyContent:'center', width:350,
+        alignItems:'center'}} 
         >
-          <Text style={[styles.textHeading,{color:'black',fontSize:24}]}>Total Amount:-    </Text>
-          <TextInput placeholder='Total Amount' style={{ fontFamily: 'Merriweather-LightItalic',fontSize:24 }}  />
+          <Text style={[styles.textHeading,{color:'black',fontSize:20}]}>Total Amount -  </Text>
+          <TextInput placeholder='Total Amount' style={{ fontFamily: 'Merriweather-LightItalic',fontSize:20 }}  />
         </View>
 
         <View style={{ height: scaledSize(100), width: '80%', alignSelf: 'center', marginTop: scaledSize(300), flexDirection: 'row' }}>
@@ -270,7 +274,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
   label: {
-    fontSize: scaledSize(18),
+    fontSize: scaledSize(14),
     color: 'white',
   },
   labelView: {
